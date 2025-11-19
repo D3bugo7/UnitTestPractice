@@ -38,3 +38,22 @@ bool Password::has_mixed_case(string str)
   }
   return false;
 }
+
+#include <stdbool.h>
+unsigned int unique_characters(string);
+/*
+  receives a string and returns the number of unique characters in it.
+  The function is case-sensitive so 'Z' is different than 'z' and any ASCII
+  characters are allowed.
+*/
+unsigned int unique_characters(string str){
+  bool ascii_table[128] = {false};
+  unsigned int count = 0;
+  for(char c : str){
+    if( !ascii_table[(int)c] ){
+      ascii_table[(int)c] = true;
+      count++;
+    }
+  }
+  return count;
+}

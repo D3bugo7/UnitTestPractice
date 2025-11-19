@@ -22,4 +22,14 @@ public:
   */
   bool has_mixed_case(string);
 };
+
+
+unsigned int unique_characters(string str);
+/*
+  receives a string and returns the number of unique characters in it.
+  The function is case-sensitive so 'Z' is different than 'z' and any ASCII
+  characters are allowed.
+*/
+unsigned int unique_characters(string str);
+
 #endif

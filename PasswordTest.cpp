@@ -83,3 +83,17 @@ TEST (PasswordTest, mixed_case_no_letters)
 	bool actual = my_password.has_mixed_case("12345!@#$%");
 	ASSERT_EQ(false,actual);
 }
+
+TEST (PasswordTest, unique_characters_all_unique)
+{
+	Password my_password;
+	unsigned int actual = unique_characters("abcdef");
+	ASSERT_EQ(6,actual);
+}
+
+TEST (PasswordTest, unique_characters_some_repeats)
+{
+	Password my_password;
+	unsigned int actual = unique_characters("aabbccddeeff");
+	ASSERT_EQ(6,actual);
+}
