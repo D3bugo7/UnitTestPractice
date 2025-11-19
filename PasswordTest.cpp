@@ -49,3 +49,37 @@ TEST (PasswordTest, mixed_case_false_all_lower)
 	ASSERT_EQ(false,actual);
 }
 
+TEST (PasswordTest, mixed_case_false_all_upper)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("HELLOWORLD");
+	ASSERT_EQ(false,actual);
+}
+
+TEST (PasswordTest, mixed_case_empty_string)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("");
+	ASSERT_EQ(false,actual);
+}
+
+TEST (PasswordTest, mixed_case_single_character)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("A");
+	ASSERT_EQ(false,actual);
+}
+
+TEST (PasswordTest, mixed_case_special_characters)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("Hello@World!");
+	ASSERT_EQ(true,actual);
+}
+
+TEST (PasswordTest, mixed_case_no_letters)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("12345!@#$%");
+	ASSERT_EQ(false,actual);
+}
